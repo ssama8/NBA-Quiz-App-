@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app connects to a server to display the logos and user data which is queried from MongoDB. Users can take quizzes on different NBA teams with stats from the 2017-2018 seasin. A hashed session id using local storage is stored everytime someone logs in and that id is used to mange state across the app for when the user is not logged in and when the user is logged in. All of the users previous quizzes are stored in the History tab where users can sort the teams by different parameters like the newest quizzes they've taken, or their highest scores.
 
-## Available Scripts
+## Home
 
-In the project directory, you can run:
+The homepage has a ssection with all 30 teams that you can choose to take a mini quiz on. You can choose to have between 4-10 questions and you will get be asked questions about that players on that team during the 2017-2018 season
 
-### `npm start`
+## History
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The history page showcases all of the quizzes that you've taken so far with a timer that tells you how long it has been since you've last taken that quiz. You can sort the teams alphabetically, by the percent you scored, and by how recent yo've taken that quiz. If you retake a quiz on that team and the result is better, than it will replace the score.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## SignUp
 
-### `npm test`
+If you don't already have an account you can create one with a unique username and a password. If the username has already been taken, than it will alert you to choose another username.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Login
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Validated your sign in details and checks to see if there is an account in the database with the same username and password.

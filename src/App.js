@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./Pages/Home";
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
+import LoginForm from "./Pages/LoginForm";
+import SignupForm from "./Pages/SignupForm";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import History from "./Pages/History";
+import Footer from "./components/Footer";
+import Hamburger from "./components/Hamburger";
 
+//How well do you know your team from the 2017-2018 season
+const baseTeamUrl = "https://nba-players.herokuapp.com/players-stats-teams/";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Router>
+				<Navbar />
+				<Sidebar />
+				<Hamburger />
+
+				<Routes>
+					<Route path='/' element={<Home />}>
+						{" "}
+					</Route>
+					<Route path='/history' element={<History />}></Route>
+					<Route path='/login' element={<LoginForm />}></Route>
+					<Route path='/sign-up' element={<SignupForm />}></Route>
+				</Routes>
+				<Footer />
+			</Router>
+		</>
+	);
 }
 
 export default App;
