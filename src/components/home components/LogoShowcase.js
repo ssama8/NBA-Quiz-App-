@@ -12,27 +12,30 @@ const LogoShowcase = ({ changeTeam }) => {
 	const [loading, setLoading] = useState(false);
 	const { changeLogo, quizzesTaken, connectionLoading } = useGlobalContext();
 
-	useEffect(() => {
-		fetchLogos();
-	}, []);
-	if (connectionLoading) {
-		<section>
-			<div className='loading mx-auto'></div>
-		</section>;
-	}
 	const fetchLogos = async () => {
 		setLoading(true);
 		try {
 			const response = fetch(logoUrl)
 				.then((resp) => resp.json())
 				.then((data) => {
+					console.log(data);
 					setLogos(data);
 				});
 		} catch (error) {}
 		setLoading(false);
 	};
-	if (logos.length < 1) {
-		return <></>;
+
+	useEffect(() => {
+		fetchLogos();
+	}, []);
+
+	console.log(connectionLoading);
+	if (connectionLoading || logos.length < 1) {
+		return (
+			<section>
+				<div className='loading mx-auto'></div>
+			</section>
+		);
 	}
 
 	const getLogoQuiz = (percent) => {

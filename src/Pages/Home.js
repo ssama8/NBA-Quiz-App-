@@ -42,7 +42,7 @@ const Home = () => {
 	return (
 		<section className='text-center flex flex-col justify-center logos-section'>
 			<Showcase />
-			<h4 className='my-7 text-2xl'>
+			<h4 className='my-7 season-explanation text-2xl'>
 				All of these questions are based on the 2017-2018 NBA Season{" "}
 			</h4>
 			{!quiz && <h2 className='text-4xl font-bold'>Choose A Team</h2>}

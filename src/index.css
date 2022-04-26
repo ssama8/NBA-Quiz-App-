@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
 	--website-width: 1200px;
 }
@@ -30,8 +31,6 @@
 .logo-grid {
 	max-width: 1200px;
 	padding: 2rem;
-
-	/* background: green; */
 }
 .btn {
 	background: black;
@@ -342,17 +341,13 @@
 	.quiz-container {
 		height: 40vh;
 		padding: 0;
-		/* background: black; */
 	}
 	.quiz {
 		padding: 0;
 	}
 	.player-div {
 		padding: 0.5rem;
-		/* margin: 0 1rem; */
-		marhgin: 0;
-		/* transform: scale(0.75); */
-		/* height: 60%; */
+		margin: 0;
 	}
 }
 
@@ -389,18 +384,13 @@
 	}
 	.bar-graph {
 		width: 95vw;
-		/* height: 40vh; */
 		max-width: 1200px;
-		/* height: 50%; */
-
 		margin-left: -1rem;
-		/* transform: rotate(90deg); */
 	}
 }
 @media screen and (max-width: 500px) {
 	.bar-graph {
-		hegiht: 30vh;
-		transform: rotate(90deg);
+		display: none;
 	}
 	.history-menu {
 		flex-direction: column;
@@ -413,5 +403,61 @@
 @media screen and (max-width: 410px) {
 	.bar-graph {
 		height: 30vh;
+	}
+}
+
+.login-form {
+	width: 400px;
+}
+/* .login-form {
+	display: none;
+} */
+
+/* .form-container {
+	margin-top: -3rem;
+	margin-bottom: -5rem;
+	height: calc(100vh - 10rem);
+
+	/* background: black; */
+/* }  */
+#form-container,
+#form-container-login {
+	background: url(https://pbs.twimg.com/media/CHgYZ9lUwAEtzDB.png) center
+		center/cover no-repeat;
+	margin-top: -3rem;
+	margin-bottom: -5rem;
+	height: calc(100vh - 10rem);
+	position: relative;
+}
+#form-container-login {
+	background: url(https://i.pinimg.com/originals/6d/cb/a8/6dcba8bcb9b19be3ad17ce388d38449a.jpg)
+		top center/cover no-repeat;
+}
+
+#form-container:before,
+#form-container-login:before {
+	content: "";
+	position: absolute;
+	height: inherit;
+	width: 100vw;
+	background: black;
+	opacity: 0.7;
+}
+#form-container *,
+#form-container-login * {
+	position: relative;
+	/* z-index: 1; */
+}
+
+@media screen and (max-width: 768px) {
+	#form-container,
+	#form-container-login {
+		height: calc(100vh - 2rem);
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.season-explanation {
+		font-size: 1.25rem;
 	}
 }

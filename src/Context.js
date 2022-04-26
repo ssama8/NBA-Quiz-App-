@@ -17,8 +17,11 @@ const AppContext = ({ children }) => {
 	}, [reloadUser]);
 
 	const fetchUser = async () => {
-		if (!login) return;
+		if (!login) {
+			return;
+		}
 		setConnectionLoading(true);
+
 		const currentUser = localStorage.getItem("currentUser");
 		const resp = await fetch(`${serverUrl}users/${currentUser}`);
 		const data = await resp.json();

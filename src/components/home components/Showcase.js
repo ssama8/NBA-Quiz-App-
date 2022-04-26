@@ -9,7 +9,7 @@ const HomeImage = () => {
 				<h1 className='text-5xl my-16'>NBA Trivia (2017-2018)</h1>
 			</div>
 			<div className='self-center description absolute'>
-				<h3 className='text-3xl my-4 flex flex-col '>
+				<h3 className='text-3xl my-4 flex flex-col call-to-action '>
 					Are You a True NBA Fan of Your Favorite Team?{" "}
 				</h3>
 				<p className='my-3 mb-16 text-lg font-bold'>
@@ -52,5 +52,27 @@ const Wrapper = styled.section`
 		color: red;
 		width: 1000px;
 		max-width: 70%;
+	}
+	@media screen and (max-width: 550px) {
+		h1 {
+			font-size: 2.25rem;
+		}
+		h3 {
+			font-size: 1.5rem;
+		}
+		.warning {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 400px) {
+		h3 {
+			margin-top: 2rem !important;
+		}
+		.call-to-action {
+			display: none;
+		}
+		.description {
+			margin-top: 3rem;
+		}
 	}
 `;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QuizForm from "./QuizForm";
 import { useQuizContext } from "../../QuizContext";
+import styled from "styled-components";
 const getRandomPlayer = (players, currentArr) => {
 	if (!players) return;
 	let randomNum = Math.floor(Math.random() * players.length);
@@ -97,7 +98,7 @@ const Players = ({ players }) => {
 		setCurrentQuestion(currentQuestion + 1);
 	};
 	return (
-		<div>
+		<Wrapper>
 			{loading && (
 				<section className='text-center mx-auto loading-section absolute'>
 					<div className='loading text-center'></div>;
@@ -113,8 +114,16 @@ const Players = ({ players }) => {
 				setAnswered={setQuestionAnswered}
 			/>
 			;
-		</div>
+		</Wrapper>
 	);
 };
 
+const Wrapper = styled.div`
+	@media screen and (max-width: 550px) {
+		.loading-section {
+			height: 100%;
+			margin-top: -2rem;
+		}
+	}
+`;
 export default Players;

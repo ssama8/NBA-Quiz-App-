@@ -3,7 +3,7 @@ import PlayerShowcase from "./PlayerShowcase";
 import { useQuizContext } from "../../QuizContext";
 import { serverUrl } from "../../utils/ServerUrl";
 import QuizSummary from "./QuizSummary";
-import { useGlobalContext } from "../../Context";
+import styled from "styled-components";
 const QuizForm = ({
 	randPlayers,
 	randomStatNumber,
@@ -12,17 +12,12 @@ const QuizForm = ({
 }) => {
 	const { state, nextQuestion, changeQuestion, setChangeQuestion } =
 		useQuizContext();
-	const { setQuiz } = useGlobalContext();
 	const [currentTeamLogo, setCurrentTeamLogo] = useState("");
 	const { questionNumber, correctAnswers, questionAnswered, questions } = state;
 	const [correct, setCorrect] = useState(false);
 
 	if (!randPlayers || !randomStatNumber || correctPlayer === undefined) {
-		return (
-			<>
-				<section></section>
-			</>
-		);
+		return <></>;
 	}
 
 	const number = randPlayers[correctPlayer][randomStatNumber];
@@ -48,10 +43,12 @@ const QuizForm = ({
 		}
 	};
 	return (
-		<section className='text-center relative flex flex-col justify-center quiz-container'>
+		<Wrapper className='text-center relative flex flex-col justify-center quiz-container'>
 			<section className='quiz border-2 p-8'>
 				<div>
-					<h2 className='text-4xl'>{questions} question quiz</h2>
+					<h2 className='text-4xl question-header'>
+						{questions} question quiz
+					</h2>
 					<section className='flex justify-center '>
 						{answered && displayMessage()}
 						<p className='question mx-3'>
@@ -105,8 +102,20 @@ const QuizForm = ({
 					))}
 				{currentTeamLogo && <QuizSummary changeLogo={setCurrentTeamLogo} />}
 			</section>
-		</section>
+		</Wrapper>
 	);
 };
+
+const Wrapper = styled.section`
+	@media screen and (max-width: 550px) {
+		.question-header {
+			font-size: 1.5rem;
+		}
+		height: 80vh;
+		.question {
+			font-size: 0.95rem;
+		}
+	}
+`;
 
 export default QuizForm;

@@ -31,13 +31,14 @@ const Sidebar = () => {
 							onClick={(e) => {
 								e.preventDefault();
 								logOut();
+								setSidebarOpen(!sidebarOpen);
 							}}
 							to='/'>
 							<h3 className='text-2xl'>Logout</h3>
 						</Link>
 					</li>
 				) : (
-					<li>
+					<li onClick={() => setSidebarOpen(!sidebarOpen)}>
 						<Link to='login'>
 							<h3 className='text-2xl'>Login </h3>
 						</Link>

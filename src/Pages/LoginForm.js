@@ -6,13 +6,12 @@ import FormField from "../components/form components/FormField";
 import { serverUrl } from "../utils/ServerUrl";
 import { useGlobalContext } from "../Context";
 const LoginForm = () => {
+	document.title = "NBA Trivia -Login";
 	const { signIntoAccount } = useGlobalContext();
-
 	const [message, setMessage] = useState("");
 	const [messageStatus, setMessageStatus] = useState("error");
 	const navigate = useNavigate();
 	const handleClick = ([{ loginUsername }, { loginPassword }]) => {
-		console.log(loginUsername, loginPassword);
 		if (!loginUsername || !loginPassword) {
 			setMessage("Please fill out all fields");
 			return;
@@ -32,9 +31,6 @@ const LoginForm = () => {
 					if (!body.error) {
 						setMessageStatus("success");
 						signIntoAccount(body.id);
-						// setLogin(true);
-						// localStorage.setItem("loginStatus", true);
-						// localStorage.setItem("currentUser", body.id);
 					}
 				});
 		}
@@ -49,11 +45,13 @@ const LoginForm = () => {
 		return () => clearTimeout(redirect);
 	}, [message]);
 	return (
-		<section className='logos-section '>
-			<h2 className='text-center text-4xl'>Login</h2>
-
+		<section
+			id='form-container-login'
+			className='logos-section flex flex-col justify-center'>
 			<div className='block p-6 rounded-lg shadow-lg bg-white max-w-lg mx-auto'>
-				<form>
+				<h2 className='text-center my-2 text-4xl '>Login</h2>
+
+				<form className='login-form'>
 					{message && <p className={messageStatus}>{message}</p>}
 					<FormField
 						type='text'

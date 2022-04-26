@@ -39,11 +39,11 @@ const Graph = ({ values }) => {
 			<Chart data={data} />
 			<section className='flex justify-between results-container text-center'>
 				<div className='border-2 border-gray'>
-					<h2>Eastern Conference</h2>
+					<h2 className='text-2xl'>Eastern Conference</h2>
 					<DataTable data={east} />
 				</div>
 				<div className='border-2 border-gray'>
-					<h2>Western Conference</h2>
+					<h2 className='text-2xl'>Western Conference</h2>
 					<DataTable data={west} />
 				</div>
 			</section>

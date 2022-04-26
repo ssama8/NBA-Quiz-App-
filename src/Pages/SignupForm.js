@@ -5,7 +5,9 @@ import FormButton from "../components/form components/FormButton";
 import Message from "../components/form components/Message";
 import { useNavigate } from "react-router-dom";
 import { serverUrl } from "../utils/ServerUrl";
+
 const SignupForm = () => {
+	document.title = "NBA Trivia -Signup";
 	const [message, setMessage] = useState("");
 	const [messageStatus, setMessageStatus] = useState("error");
 	const [loading, setLoading] = useState(false);
@@ -26,9 +28,9 @@ const SignupForm = () => {
 		}, 750);
 	};
 	const redirectToLogin = () => {
-		console.log("running");
 		navigate("/login");
 	};
+
 	const validateInformation = (
 		username,
 		confirmUsername,
@@ -54,7 +56,6 @@ const SignupForm = () => {
 				"Password"
 			);
 			if (passwordNotValid) {
-				console.log("running");
 				setMessage(passwordNotValid);
 			} else {
 				//Post User
@@ -68,7 +69,6 @@ const SignupForm = () => {
 						console.log(data);
 						const { body } = data;
 						console.log(body.results);
-						// localStorage.setItem("currentUser", body.id);
 						setMessage(body.message);
 					});
 				setMessageStatus("success");
@@ -96,58 +96,66 @@ const SignupForm = () => {
 	};
 
 	return (
-		<section className='logos-section py-12 sign-form'>
-			<h2 className='text-center text-4xl mt-3 font-bold'> Sign Up </h2>
-			<div className='block p-6 rounded-lg form-container shadow-lg bg-white max-w-lg mx-auto self-center'>
-				<form>
-					{loading && (
-						<div className='form-loading'>
-							<div className='loading'></div>
-						</div>
-					)}
-					{message && <Message name={messageStatus} message={message} />}
-					<FormField
-						type='text'
-						label='Username'
-						placeholder='Enter Username'
-						name='username'
-					/>
-					<FormField
-						type='text'
-						label='Confirm Username'
-						placeholder='Confirm Username'
-						name='confirm-username'
-					/>
+		<section
+			className='logos-section py-12 flex flex-col justify-center'
+			id='form-container'>
+			<section>
+				<div className='block p-6 rounded-lg shadow-lg bg-white max-w-lg mx-auto self-center'>
+					<h2 className='text-center text-4xl mt-3 font-bold z-50 '>
+						{" "}
+						Sign Up{" "}
+					</h2>
 
-					<FormField
-						type='text'
-						label='Password'
-						placeholder='Password'
-						name='password'
-					/>
-					<FormField
-						type='text'
-						label='Confirm Password'
-						placeholder='Confirm Password'
-						name='confirm-password'
-					/>
-					<FormButton
-						btnText='Sign Up'
-						click={handleClick}
-						inputFields={[
-							"username",
-							"confirm-username",
-							"password",
-							"confirm-password",
-						]}
-					/>
-					<RedirectLink
-						message='Already have an Account?'
-						link='/login'
-						linkText='Sign In'
-					/>
-				</form>
-			</div>
+					<form>
+						{loading && (
+							<div className='form-loading'>
+								<div className='loading'></div>
+							</div>
+						)}
+						{message && <Message name={messageStatus} message={message} />}
+						<FormField
+							type='text'
+							label='Username'
+							placeholder='Enter Username'
+							name='username'
+						/>
+						<FormField
+							type='text'
+							label='Confirm Username'
+							placeholder='Confirm Username'
+							name='confirm-username'
+						/>
+
+						<FormField
+							type='text'
+							label='Password'
+							placeholder='Password'
+							name='password'
+						/>
+						<FormField
+							type='text'
+							label='Confirm Password'
+							placeholder='Confirm Password'
+							name='confirm-password'
+						/>
+						<FormButton
+							btnText='Sign Up'
+							click={handleClick}
+							inputFields={[
+								"username",
+								"confirm-username",
+								"password",
+								"confirm-password",
+							]}
+						/>
+						<RedirectLink
+							message='Already have an Account?'
+							link='/login'
+							linkText='Sign In'
+						/>
+					</form>
+				</div>
+			</section>
 		</section>
 	);
 };

@@ -110,7 +110,7 @@ const QuizzesTaken = ({ previousQuizzes }) => {
 						!cardsActive && "active"
 					} `}
 					onClick={setToGraph}>
-					View Graph
+					View Graphs
 				</h3>
 			</div>
 
