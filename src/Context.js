@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { serverUrl } from "./utils/ServerUrl";
-
+import Showcase from "./components/home components/Showcase";
 const App = React.createContext();
 
 const loginStatus = JSON.parse(localStorage.getItem("loginStatus"));
@@ -9,7 +9,7 @@ const AppContext = ({ children }) => {
 	const [quizzesTaken, setQuizzesTaken] = useState([]);
 	const [currentLogo, setCurrentLogo] = useState({ url: "", mascot: "" });
 	const [quiz, setQuiz] = useState(false);
-	const [loading, setLoading] = useState(false);
+	const [connectionLoading, setConnectionLoading] = useState(false);
 	const [reloadUser, setReloadUser] = useState(false);
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	useEffect(() => {
@@ -18,12 +18,12 @@ const AppContext = ({ children }) => {
 
 	const fetchUser = async () => {
 		if (!login) return;
-		setLoading(true);
+		setConnectionLoading(true);
 		const currentUser = localStorage.getItem("currentUser");
 		const resp = await fetch(`${serverUrl}users/${currentUser}`);
 		const data = await resp.json();
 		setQuizzesTaken(data.results);
-		setLoading(false);
+		setConnectionLoading(false);
 	};
 
 	const changeLogo = (url, mascot) => {
@@ -49,11 +49,14 @@ const AppContext = ({ children }) => {
 		}, 2100);
 	};
 
-	if (loading) {
-		return (
-			<section>{loading && <div className='loading mx-auto'></div>}</section>
-		);
-	}
+	// if (loading) {
+	// 	return (
+	// 		<section>
+	// 			{/* <Showcase /> */}
+	// 			{loading && <div className='loading mx-auto'></div>}
+	// 		</section>
+	// 	);
+	// }
 
 	return (
 		<App.Provider
@@ -72,6 +75,7 @@ const AppContext = ({ children }) => {
 				sidebarOpen,
 				setSidebarOpen,
 				signIntoAccount,
+				connectionLoading,
 			}}>
 			{children}
 		</App.Provider>

@@ -96,7 +96,7 @@ const SignupForm = () => {
 	};
 
 	return (
-		<section className='logos-section py-12'>
+		<section className='logos-section py-12 sign-form'>
 			<h2 className='text-center text-4xl mt-3 font-bold'> Sign Up </h2>
 			<div className='block p-6 rounded-lg form-container shadow-lg bg-white max-w-lg mx-auto self-center'>
 				<form>
@@ -131,27 +131,6 @@ const SignupForm = () => {
 						placeholder='Confirm Password'
 						name='confirm-password'
 					/>
-
-					{/* <div className='flex justify-between items-center mb-6'>
-					<div className='form-group form-check'>
-						<input
-							type='checkbox'
-							className='form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'
-							id='exampleCheck2'
-						/>
-						<label
-							className='form-check-label inline-block text-gray-800'
-							htmlFor='exampleCheck2'>
-							Remember me
-						</label>
-					</div>
-					<a
-						href='#!'
-						className='text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out'>
-						Forgot password?
-					</a>
-				</div> */}
-
 					<FormButton
 						btnText='Sign Up'
 						click={handleClick}

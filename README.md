@@ -4,7 +4,7 @@ This app connects to a server to display the logos and user data which is querie
 
 ## Home
 
-The homepage has a ssection with all 30 teams that you can choose to take a mini quiz on. You can choose to have between 4-10 questions and you will get be asked questions about that players on that team during the 2017-2018 season
+The homepage has a section with all 30 teams that you can choose to take a mini quiz on. You can choose to have between 4-10 questions and you will get be asked questions about the players on that team during the 2017-2018 season
 
 ## History
 

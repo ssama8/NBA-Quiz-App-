@@ -10,24 +10,25 @@ const LogoShowcase = ({ changeTeam }) => {
 	const [logos, setLogos] = useState([]);
 	const [modalQuiz, setModalQuiz] = useState({});
 	const [loading, setLoading] = useState(false);
-	const { changeLogo, quizzesTaken } = useGlobalContext();
+	const { changeLogo, quizzesTaken, connectionLoading } = useGlobalContext();
 
 	useEffect(() => {
 		fetchLogos();
 	}, []);
+	if (connectionLoading) {
+		<section>
+			<div className='loading mx-auto'></div>
+		</section>;
+	}
 	const fetchLogos = async () => {
-		console.log("running");
 		setLoading(true);
 		try {
 			const response = fetch(logoUrl)
 				.then((resp) => resp.json())
 				.then((data) => {
-					console.log(data);
 					setLogos(data);
 				});
-		} catch (error) {
-			console.log(error);
-		}
+		} catch (error) {}
 		setLoading(false);
 	};
 	if (logos.length < 1) {
