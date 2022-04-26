@@ -15,7 +15,7 @@ const HomeImage = () => {
 				<p className='my-3 mb-16 text-lg font-bold'>
 					Put your knowledge to the test by choosing a team and taking the quiz
 				</p>
-				<Link className='btn py-4 px-8 font-bold rounded' to='/'>
+				<Link className='btn py-4 px-8 font-bold rounded' to='/sign-up'>
 					{" "}
 					Sign Up{" "}
 				</Link>
