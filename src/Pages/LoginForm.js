@@ -49,7 +49,7 @@ const LoginForm = () => {
 		return () => clearTimeout(redirect);
 	}, [message]);
 	return (
-		<section className='logos-section flex items-center'>
+		<section className='logos-section '>
 			<h2 className='text-center text-4xl'>Login</h2>
 
 			<div className='block p-6 rounded-lg shadow-lg bg-white max-w-lg mx-auto'>
