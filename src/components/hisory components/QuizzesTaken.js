@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Graph from "./Graph";
 import PreviousQuizTaken from "./PreviousQuizTaken";
 import EasternConference from "../../utils/Confereces";
-const QuizzesTaken = ({ previousQuizzes }) => {
-	const [test, setTest] = useState([...previousQuizzes]);
+import { useGlobalContext } from "../../Context";
+const QuizzesTaken = () => {
+	const { quizzesTaken, setQuizzesTaken } = useGlobalContext();
+	const [test, setTest] = useState(quizzesTaken);
 	const [cardsActive, setCardsActive] = useState(true);
 	useEffect(() => {
 		setTest(
@@ -71,7 +73,7 @@ const QuizzesTaken = ({ previousQuizzes }) => {
 			}
 		}
 
-		setTest([...newArr]);
+		setQuizzesTaken([...newArr]);
 	};
 
 	const setToGraph = () => {
@@ -116,7 +118,7 @@ const QuizzesTaken = ({ previousQuizzes }) => {
 
 			{cardsActive ? (
 				<div className='grid grid-cols-3 gap-8 px-3 quizzes-container mx-auto text-center'>
-					{test.map((quiz, index) => {
+					{quizzesTaken.map((quiz, index) => {
 						return <PreviousQuizTaken {...quiz} key={index} />;
 					})}
 				</div>

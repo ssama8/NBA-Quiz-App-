@@ -24,9 +24,7 @@ const getRandomStat = (obj) => {
 };
 
 const Players = ({ players }) => {
-	const { setCorrectAnswer, state, correctAnswer, changeQuestion } =
-		useQuizContext();
-	const { questionNumber } = state;
+	const { setCorrectAnswer, correctAnswer, changeQuestion } = useQuizContext();
 	const [randomPlayers, setRandomPlayers] = useState([]);
 	const [randomPlayerNumber, setRandomPlayerNumber] = useState("");
 	const [randomStatNumber, setRandomStatNumber] = useState("");
@@ -39,14 +37,11 @@ const Players = ({ players }) => {
 		if (players.length > 0) {
 			setRandomPlayers();
 			let arr = new Set();
-			console.log(arr);
 			while (arr.size < 4) {
 				const randPlayer = getRandomPlayer(players, arr);
-				// console.log(randPlayer);
 				arr.add(randPlayer);
 			}
 
-			// console.log(arr);
 			if (arr.size > 0) {
 				arr = [...arr];
 				console.log(arr);

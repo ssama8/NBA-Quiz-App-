@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useGlobalContext } from "../Context";
 import QuizzesTaken from "../components/hisory components/QuizzesTaken";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 const History = () => {
 	document.title = "NBA Trivia -History";
-	const { quizzesTaken, setQuizzesTaken, login } = useGlobalContext();
+	const { login } = useGlobalContext();
 	if (!login) {
 		return (
 			<Wrapper className='flex text-center relative items-center justify-center'>
@@ -33,10 +33,7 @@ const History = () => {
 	}
 	return (
 		<section className='logos-section'>
-			<QuizzesTaken
-				previousQuizzes={quizzesTaken}
-				changeOrder={setQuizzesTaken}
-			/>
+			<QuizzesTaken />
 		</section>
 	);
 };

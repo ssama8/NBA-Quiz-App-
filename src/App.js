@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import Hamburger from "./components/Hamburger";
 
 //How well do you know your team from the 2017-2018 season
-const baseTeamUrl = "https://nba-players.herokuapp.com/players-stats-teams/";
 function App() {
 	return (
 		<>

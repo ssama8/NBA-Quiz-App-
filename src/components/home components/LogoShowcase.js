@@ -15,10 +15,9 @@ const LogoShowcase = ({ changeTeam }) => {
 	const fetchLogos = async () => {
 		setLoading(true);
 		try {
-			const response = fetch(logoUrl)
+			fetch(logoUrl)
 				.then((resp) => resp.json())
 				.then((data) => {
-					console.log(data);
 					setLogos(data);
 				});
 		} catch (error) {}
@@ -70,7 +69,7 @@ const LogoShowcase = ({ changeTeam }) => {
 			<div className='grid grid-cols-8 gap-4 logo-grid mx-auto relative'>
 				{logos.map((logo, index) => {
 					let taken = "";
-					const { id, name, url, mascot } = logo;
+					const { name, url, mascot } = logo;
 					const quiz = quizzesTaken.find((quiz) => quiz.mascot === mascot);
 					if (quiz) {
 						const { correctAnswers, totalQuestions } = quiz;
