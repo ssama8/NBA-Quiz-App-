@@ -11,7 +11,6 @@ import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 const Chart = ({ data }) => {
-	console.log(window.innerWidth);
 	const chartConfigs = {
 		type: "column2d",
 		width: "100%",

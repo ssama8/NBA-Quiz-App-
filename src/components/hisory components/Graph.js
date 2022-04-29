@@ -6,17 +6,17 @@
 
 // export default Graph;
 // STEP 1 - Include Dependencies
-// Include react
 import React from "react";
+import EasternConference from "../../utils/Confereces";
 
 import Chart from "./Chart";
 import DataTable from "./DataTable";
 import getTotals from "../../utils/Totals";
-// STEP 2 - Chart Data
+import { useGlobalContext } from "../../Context";
 
-// STEP 4 - Creating the DOM element to pass the react-fusioncharts component
-const Graph = ({ values }) => {
-	const data = values.map((quiz) => {
+const Graph = () => {
+	const { quizzesTaken } = useGlobalContext();
+	const data = quizzesTaken.map((quiz) => {
 		const { mascot, correctAnswers, totalQuestions } = quiz;
 		const percent = ((correctAnswers / totalQuestions) * 100).toFixed();
 		return {
@@ -26,14 +26,16 @@ const Graph = ({ values }) => {
 	});
 	const east = [];
 	const west = [];
-	values.forEach((team) => {
-		const { conference } = team;
-		conference === "east" ? east.push(team) : west.push(team);
+	quizzesTaken.forEach((team) => {
+		const { mascot } = team;
+		if (EasternConference.find((team) => team === mascot)) {
+			east.push(team);
+		} else {
+			west.push(team);
+		}
 	});
 	east.push(getTotals(east));
 	west.push(getTotals(west));
-	// const west = values.filter((tea))
-	console.log(east);
 	return (
 		<section className='flex flex-col items-center '>
 			<Chart data={data} />

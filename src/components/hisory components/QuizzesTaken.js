@@ -5,20 +5,7 @@ import EasternConference from "../../utils/Confereces";
 import { useGlobalContext } from "../../Context";
 const QuizzesTaken = () => {
 	const { quizzesTaken, setQuizzesTaken } = useGlobalContext();
-	const [test, setTest] = useState(quizzesTaken);
 	const [cardsActive, setCardsActive] = useState(true);
-	useEffect(() => {
-		setTest(
-			test.map((quiz) => {
-				const { mascot } = quiz;
-				let conference;
-				EasternConference.find((team) => team === mascot)
-					? (conference = "east")
-					: (conference = "west");
-				return { ...quiz, conference };
-			})
-		);
-	}, []);
 
 	const sortArr = (arr, val) => {
 		let newArr;
@@ -123,7 +110,7 @@ const QuizzesTaken = () => {
 					})}
 				</div>
 			) : (
-				<Graph values={test} />
+				<Graph />
 			)}
 		</div>
 	);
