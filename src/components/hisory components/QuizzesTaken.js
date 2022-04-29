@@ -89,7 +89,7 @@ const QuizzesTaken = () => {
 			<div className='flex justify-center items-center history-menu '>
 				<select
 					className='text-center self-center ml-8 my-4  p-2 border-2 border-black'
-					onChange={(e) => sortArr(test, e.target.value)}>
+					onChange={(e) => sortArr(quizzesTaken, e.target.value)}>
 					<option value='oldest'> Sort By Oldest </option>
 
 					<option value='newest'> Sort By Most Recent</option>
